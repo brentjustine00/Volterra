@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #050505;
+  --neon-blue: #00d6ff;
+  --electric-purple: #8a2be2;
+  --text: #ffffff;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+@keyframes scanlines {
+  0% {
+    transform: translateY(-10%);
+    opacity: 0.12;
+  }
+  50% {
+    opacity: 0.22;
+  }
+  100% {
+    transform: translateY(10%);
+    opacity: 0.12;
+  }
+}
+
+.hero-scanlines {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.08) 0px,
+    rgba(255, 255, 255, 0) 2px
+  );
+  background-size: 100% 6px;
+  animation: scanlines 7s linear infinite;
+}
+
+::selection {
+  background: rgba(0, 214, 255, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
